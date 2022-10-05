@@ -1,0 +1,92 @@
+
+
+
+
+<!-- Blog -->
+<section class="fh5co-blog">
+    <div class="site-container-fluid">
+        <h2 class="universal-h2 universal-h2-bckg">Qiuz Masha</h2>
+        <div class="blog-slider blog-inner">
+            <div class="single-blog">
+                <div class="single-blog__img">
+                    <img src="assets/images/blog1.jpg" alt="blog image">
+                </div>
+                <div class="single-blog__text">
+                    <h4>HTML Quiz</h4>
+                    <span>1 hr 30 min</span>
+
+                    <br>
+                    <p>Submit you fullname to begin the Quiz</p>
+                    <br>
+                    <div class="contact-form__input">
+                        <input #name type="text"  class="form-control" required>
+                    </div>
+                    <br>
+                    <button class="submit-button" (click)="startQuiz()"> start Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- question form -->
+<section>
+    <div class="container">
+        <div class="card">
+            <div class="d-flex justify-content-between p-3">
+            
+            </div>
+            <div class="d-flex justify-content-between p-3">
+                <div class="score">
+                    <h5>20 Points</h5>
+                </div>
+                <div class="questions-remain">
+                    <span style="font-style: italic;"> Question 10 0f 30</span>
+                </div>
+                <div class="time">
+                    <span>60 sec</span>
+                </div>
+             </div>
+             <!-- progress bar -->
+            <div class="progress mb-3">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <!-- quesion list -->
+            <div class="quesions">
+                <div class="card">
+                    <h3>What is your name ?</h3>
+                </div>
+            </div>
+            <!-- options list -->
+            <div class="options">
+                <ol>
+                    <li>
+                        <div class="card">
+                            Sushi
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card">
+                            Mac
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card">
+                            Burg
+                        </div>
+                    </li>
+                    <li>
+                        <div class="card">
+                            Lime
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <!-- buttons -->
+            <div class="d-flex justify-content-between p-2">
+                <button class="btn"><i class="fa text-warning fa-chevron-left fa-3x" aria-hidden="true"></i></button>
+                <button class="btn"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
