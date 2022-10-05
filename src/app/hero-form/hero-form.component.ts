@@ -30,16 +30,17 @@ export class HeroFormComponent implements OnInit {
     'Nakuru','Kajiado','Narok'
   ]
 
-  model = new Hero(1,'alice','aa@gmail.com',this.powers[0],this.county[0],'words of wisdom','dr Chickleman');
+  // model = new Hero(1,'alice','aa@gmail.com',
+  // this.powers[0],this.county[0],'words of wisdom','dr Chickleman');
 
-  // add new Hero
-  newHero(){
-   this.model = new Hero(2,'','','','','','');
-  }
+  // // add new Hero
+  // newHero(){
+  //  this.model = new Hero(2,'','','',);
+  // }
 
-  // submit form
-  submitted=false
+  // // submit form
+  // submitted=false
 
-  onSubmit(){this.submitted=true;}
+  // onSubmit(){this.submitted=true;}
 
 }

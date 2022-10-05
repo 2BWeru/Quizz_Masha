@@ -1,4 +1,4 @@
-<div [hidden]="submitted">
+<!-- <div [hidden]="submitted">
     <h1>Hero Form</h1>
 <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
 <div class="container-fluid py-3">
@@ -92,7 +92,7 @@
 </div>
 
 <!-- load Form -->
-<div [hidden]="!submitted">
+<!-- <div [hidden]="!submitted">
     <h2>You submitted the following:</h2>
     <div class="row">
       <div class="col-xs-3">Name</div>
@@ -121,11 +121,11 @@
     <br>
     <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
   </div>
+ -->
 
 
 
-
-  <ng-template #demoModal let-modal>
+  <!-- <ng-template #demoModal let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
@@ -145,4 +145,4 @@
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
   </ng-template>
-  
+   -->
