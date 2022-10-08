@@ -1,47 +1,23 @@
 
 
-
-
-<!-- Blog -->
-<section class="fh5co-blog">
-    <div class="site-container-fluid">
-        <h2 class="universal-h2 universal-h2-bckg">Qiuz Masha</h2>
-        <div class="blog-slider blog-inner">
-            <div class="single-blog">
-                <div class="single-blog__img">
-                    <img src="assets/images/blog1.jpg" alt="blog image">
-                </div>
-                <div class="single-blog__text">
-                    <h4>HTML Quiz</h4>
-                    <span>1 hr 30 min</span>
-
-                    <br>
-                    <p>Submit you fullname to begin the Quiz</p>
-                    <br>
-                    <div class="contact-form__input">
-                        <input #name type="text"  class="form-control" required>
-                    </div>
-                    <br>
-                    <button class="submit-button" (click)="startQuiz()"> start Quiz</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- question form -->
 <section>
     <div class="container">
         <div class="card">
-            <div class="d-flex justify-content-between p-3">
-            
+            <div class="d-flex justify-content-center">
+                 <h2 class="universal-h2 universal-h2-bckg">Quizz Masha</h2>
+
+            </div>
+            <div class="d-flex justify-content-sm-center">
+                <h4>Welcome {{fullname}}</h4>
+
             </div>
             <div class="d-flex justify-content-between p-3">
                 <div class="score">
                     <h5>20 Points</h5>
                 </div>
                 <div class="questions-remain">
-                    <span style="font-style: italic;"> Question 10 0f 30</span>
+                    <span style="font-style: italic;"> Question {{currentQuestion+1}} 0f {{questionsList.length}}</span>
                 </div>
                 <div class="time">
                     <span>60 sec</span>
@@ -54,39 +30,86 @@
             <!-- quesion list -->
             <div class="quesions">
                 <div class="card">
-                    <h3>What is your name ?</h3>
+                    <h3>{{questionsList[currentQuestion]?.question}}</h3>
                 </div>
             </div>
             <!-- options list -->
             <div class="options">
-                <ol>
-                    <li>
-                        <div class="card">
-                            Sushi
+                <ol> 
+                    <li (click)="getAnswerA(currentQuestion+1,questionsList.correct_answer)">
+
+                        <div class="card" >
+                            {{questionsList[currentQuestion]?.answers.answer_a}}
                         </div>
                     </li>
-                    <li>
-                        <div class="card">
-                            Mac
+                    <li (click)="getAnswerB(currentQuestion+1,questionsList.correct_answer)">
+
+                        <div class="card" >
+                            {{questionsList[currentQuestion]?.answers.answer_b}}
                         </div>
                     </li>
-                    <li>
-                        <div class="card">
-                            Burg
+                    <li (click)="getAnswerC(currentQuestion+1,questionsList.correct_answer)">
+
+                        <div class="card" >
+                            {{questionsList[currentQuestion]?.answers.answer_c}}
                         </div>
                     </li>
-                    <li>
-                        <div class="card">
-                            Lime
+                    <li (click)="getAnswerD(currentQuestion+1,questionsList.correct_answer)">
+
+                        <div class="card" >
+                            {{questionsList[currentQuestion]?.answers.answer_d}}
                         </div>
                     </li>
+                    
                 </ol>
             </div>
             <!-- buttons -->
-            <div class="d-flex justify-content-between p-2">
-                <button class="btn"><i class="fa text-warning fa-chevron-left fa-3x" aria-hidden="true"></i></button>
-                <button class="btn"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+            <div class="d-flex justify-content-between p-3">
+                <button class="btn" [disabled]="currentQuestion==0;submitQuiz==true"  (click)="previousQuestion()"><i class="fa text-warning fa-chevron-left fa-3x" aria-hidden="true"></i></button>
+                <button [disabled]="currentQuestion+1 < questionsList.length"  (click)="submitQuiz()" class="btn" (click)="open(demoModal)">
+                    Submit
+                </button>
+                <button class="btn" [disabled]="currentQuestion+1 >= questionsList.length" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+                
             </div>
         </div>
     </div>
+    
 </section>
+
+
+
+<!-- modal -->
+<ng-template #demoModal let-modal>
+    <div class="modal-header">
+      <!-- <h4 class="modal-title" id="modal-basic-title">Profile update</h4> -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="height: 500px;">
+        <section class="fh5co-blog">
+            <div class="site-container-fluid">
+                <h2 class="universal-h2 universal-h2-bckg">Quizz Masha</h2>
+                <div class="blog-slider blog-inner">
+                    <div class="single-blog" style="padding: 0;">
+                    
+                        <div class="single-blog__text" style="width: 400px; height: 300px;margin-left: 30px;border-left: 1px gray;">
+                            
+                            <div class="d-flex justify-content-between p-2">Congratulations {{fullname}} You Finished The Quizz</div>
+                            <br>
+                            <div class="d-flex justify-content-between p-2">
+                                <h4 class="universal-h4 universal-h4-bckg">Your Score is:</h4>
+                                <h4 class="universal-h4 universal-h4-bckg">{{total}} %</h4>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark"  (click)="modal.close('Save click')" >Certification</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+  
+  </ng-template>
+<!-- modal -->
