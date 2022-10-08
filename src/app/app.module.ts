@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule,Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { HeroFormComponent } from './hero-form/hero-form.component';
@@ -24,12 +25,13 @@ import { JsIntermediateComponent } from './js-intermediate/js-intermediate.compo
     PageNotFoundComponent,
     CssComponent,
     JsBasicComponent,
-    JsIntermediateComponent
+    JsIntermediateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
       {path:'' ,component:BlogComponent},
