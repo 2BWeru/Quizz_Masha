@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CssComponent } from './css/css.component';
 import { JsBasicComponent } from './js-basic/js-basic.component';
 import { JsIntermediateComponent } from './js-intermediate/js-intermediate.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { JsIntermediateComponent } from './js-intermediate/js-intermediate.compo
     CssComponent,
     JsBasicComponent,
     JsIntermediateComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { JsIntermediateComponent } from './js-intermediate/js-intermediate.compo
       {path:'css',component:CssComponent},
       {path:'JsBasic',component:JsBasicComponent},
       {path:'JsIntermediate',component:JsIntermediateComponent},
+      {path:'results',component:ResultsComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
