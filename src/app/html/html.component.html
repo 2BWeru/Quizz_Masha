@@ -20,43 +20,45 @@
                     <span style="font-style: italic;"> Question {{currentQuestion+1}} 0f {{questionsList.length}}</span>
                 </div>
                 <div class="time">
-                    <span>60 sec</span>
+                    
+                    <span>{{ timer }} min:{{second}} sec</span>
                 </div>
              </div>
+          
              <!-- progress bar -->
             <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" [ngStyle]="{'width':progressbar+'%'}" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <!-- quesion list -->
-            <div class="quesions">
+            <div class="quesions" *ngIf="currentQuestion+1 <= questionsList.length">
                 <div class="card">
                     <h3>{{questionsList[currentQuestion]?.question}}</h3>
                 </div>
             </div>
             <!-- options list -->
-            <div class="options">
+            <div class="options" *ngIf="currentQuestion+1 <= questionsList.length">
                 <ol> 
-                    <li (click)="getAnswerA(currentQuestion+1,questionsList.correct_answer)">
+                    <li (click)="onClick($event)" >
 
-                        <div class="card" >
+                        <div class="card" id="answer_a">
                             {{questionsList[currentQuestion]?.answers.answer_a}}
                         </div>
                     </li>
-                    <li (click)="getAnswerB(currentQuestion+1,questionsList.correct_answer)">
+                    <li  (click)="onClick($event)">
 
-                        <div class="card" >
+                        <div class="card" id="answer_b">
                             {{questionsList[currentQuestion]?.answers.answer_b}}
                         </div>
                     </li>
-                    <li (click)="getAnswerC(currentQuestion+1,questionsList.correct_answer)">
+                    <li (click)="onClick($event)" >
 
-                        <div class="card" >
+                        <div class="card" id="answer_c">
                             {{questionsList[currentQuestion]?.answers.answer_c}}
                         </div>
                     </li>
-                    <li (click)="getAnswerD(currentQuestion+1,questionsList.correct_answer)">
+                    <li (click)="onClick($event)">
 
-                        <div class="card" >
+                        <div class="card" id="answer_d">
                             {{questionsList[currentQuestion]?.answers.answer_d}}
                         </div>
                     </li>
@@ -64,14 +66,15 @@
                 </ol>
             </div>
             <!-- buttons -->
-            <div class="d-flex justify-content-between p-3">
-                <button class="btn" [disabled]="currentQuestion==0;submitQuiz==true"  (click)="previousQuestion()"><i class="fa text-warning fa-chevron-left fa-3x" aria-hidden="true"></i></button>
-                <button [disabled]="currentQuestion+1 < questionsList.length"  (click)="submitQuiz()" class="btn" (click)="open(demoModal)">
+            <div class="d-flex justify-content-center">
+                <button [disabled]="currentQuestion+1 <= questionsList.length"  *ngIf="currentQuestion+1 >= questionsList.length" (click)="submitQuiz()" class="btn" (click)="open(demoModal)">
                     Submit
-                </button>
-                <button class="btn" [disabled]="currentQuestion+1 >= questionsList.length" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
-                
+                </button> 
             </div>
+            <div class="d-flex justify-content-center">
+                <button  class="btn"  [disabled]="!clicked === false" *ngIf="currentQuestion+1 < questionsList.length" (click)="nextQuestion()"><i class="fa text-warning fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+            </div>
+
         </div>
     </div>
     
