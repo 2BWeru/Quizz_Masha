@@ -19,3 +19,10 @@ button[disabled]{
     color: aliceblue;
     border: 1px white;
 }
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
