@@ -71,7 +71,10 @@
                     </div>
                 </a>
                 <h4 class="single-book__title">HTML</h4>
-                <span class="single-book__price"><a routerLink="/html">Start Quiz</a></span>
+                <span class="single-book__price">
+                    <button (click)="open(demoModal)" #html>start Quiz</button>
+                    <!-- <a routerLink="/html">Start Quiz</a> -->
+                </span>
                 <!-- star rating -->
                 <div class="rating">
                     <span>&#9734;</span>
@@ -90,7 +93,10 @@
                     </div>
                 </a>
                 <h4 class="single-book__title">CSS</h4>
-                <span class="single-book__price"><a routerLink="/Css">Start Quiz</a></span>
+                <span class="single-book__price">
+                    <button (click)="open(demoModal)" #css>Start Quiz</button>
+                    <!-- <a routerLink="/Css">Start Quiz</a> -->
+                </span>
                 <!-- star rating -->
                 <div class="rating">
                     <span>&#9734;</span>
@@ -109,7 +115,11 @@
                     </div>
                 </a>
                 <h4 class="single-book__title">JavaScript (Basic)</h4>
-                <span class="single-book__price"><a routerLink="/JsBasic">Start Quiz</a></span>
+                <span class="single-book__price">
+                    <button (click)="open(demoModal)" #JsBasic>Start Quiz</button>
+
+                    <!-- <a routerLink="/JsBasic">Start Quiz</a> -->
+                </span>
                 <!-- star rating -->
                 <div class="rating">
                     <span>&#9734;</span>
@@ -128,7 +138,11 @@
                     </div>
                 </a>
                 <h4 class="single-book__title">JavaScript (Intermediate)</h4>
-                <span class="single-book__price"><a routerLink="JsIntermediate">Start Quiz</a></span>
+                
+                <span class="single-book__price">
+                    <button (click)="open(demoModal)" #JsIntermediate>Start Quiz</button>
+                    <!-- <a routerLink="JsIntermediate">Start Quiz</a> -->
+                </span>
                 <!-- star rating -->
                 <div class="rating">
                     <span>&#9734;</span>
@@ -182,6 +196,39 @@
 </div>
 <!-- Counter -->
 
+<!-- modal -->
+  <ng-template #demoModal let-modal>
+    <div class="modal-header">
+      <!-- <h4 class="modal-title" id="modal-basic-title">Profile update</h4> -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="height: 500px;">
+        <section class="fh5co-blog">
+            <div class="site-container-fluid">
+                <h2 class="universal-h2 universal-h2-bckg">Quizz Masha</h2>
+                <div class="blog-slider blog-inner">
+                    <div class="single-blog" style="padding: 0;">
+                    
+                        <div class="single-blog__text" style="width: 400px; height: 300px;margin-left: 30px;border-left: 1px gray;">
+                            
+                            <p>Please Fill in you fullname to begin the Quiz</p>
+                            <br>
+                            <div class="contact-form__input">
+                                <input #name type="text"  class="form-control" required>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" (click)="startQuiz()"class="btn btn-outline-dark"  (click)="modal.close('Save click')" >Start Quiz</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+  
+  </ng-template>
+<!-- modal -->
 <!-- Blog -->
 <section class="fh5co-blog">
     <div class="site-container">
@@ -308,7 +355,7 @@
                         [disabled]="!contactForm.form.valid"
                         >Submit
                     </button>
-                    {{contacts|json}}
+                    {{contacts}}
                 </form>
             </div>
         </div>
