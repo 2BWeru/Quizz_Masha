@@ -11,7 +11,22 @@ li{
 }
 li .card:hover{
     border: 1px solid orange;
+
 }
+li .highlight, .highlight_stay{
+    background-color:red;
+}
+::-moz-selection { /* Code for Firefox */
+    color: red;
+    background: yellow;
+  }
+  
+  ::selection {
+    color: red;
+    background: yellow;
+  }
+
+
 ol{
     padding: 0;
 }

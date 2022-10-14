@@ -62,7 +62,7 @@ export class HtmlComponent implements OnInit {
 
   // Arrow Button Functions
   nextQuestion(){
-    this.currentQuestion++;
+    
     this.theCorrectAnswer=this.questionsList[this.currentQuestion].correct_answer;
     console.log("Correct Answ = "+this.theCorrectAnswer);
 
@@ -83,9 +83,7 @@ export class HtmlComponent implements OnInit {
 
     
   }
-  previousQuestion(){
-   this.currentQuestion--;
-  }
+ 
 
   // Not clicked lists
    clicked=false;
@@ -113,9 +111,29 @@ export class HtmlComponent implements OnInit {
 
   
   submitQuiz(){
+    this.currentQuestion++;
     this.submitted=!this.submitted;
     this.total=((this.rightAnswers/this.questionsList.length)*100);
     console.log(this.rightAnswers,this.total,this.theCorrectAnswer);
+
+    this.theCorrectAnswer=this.questionsList[this.currentQuestion].correct_answer;
+    console.log("Correct Answ = "+this.theCorrectAnswer);
+
+    this.getProgressbarPercentage();
+    
+
+    if(this.theCorrectAnswer === this.clickedAnswer ){
+      this.rightAnswers++;
+    }
+    else {
+      this.wrongAnswers++ ;
+      this.rightAnswers=0;
+    }
+    console.log("No.Correct Answ = "+this.rightAnswers);
+    console.log("Clicked Answ ="+this.clickedAnswer);
+   
+
+    
   }
 
 // counter
