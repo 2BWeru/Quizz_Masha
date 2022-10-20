@@ -15,11 +15,26 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class QuizService {
 
   constructor(private http:HttpClient) { }
-  BaseHtmlUrl="https://quizapi.io/api/v1/questions?apiKey=UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr&limit=17&tags=HTML"
+  BaseHtmlUrl="https://quizapi.io/api/v1/questions?apiKey=UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr&category=code&difficulty=Medium&limit=15&tags=HTML"
+
+  BaseWordPressUrl="https://quizapi.io/api/v1/questions?apiKey=UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr&difficulty=Easy&limit=15&tags=WordPress"
+
+  BaseJsBUrl="https://quizapi.io/api/v1/questions?apiKey=UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr&category=code&difficulty=Easy&limit=15&tags=JavaScript"
+
+  BaseJsIUrl="https://quizapi.io/api/v1/questions?apiKey=UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr&limit=15&tags=JavaScript"
 
   ApiKey="UvJWWhRup0tmxi53AsB11ruaJogO2Zjjt968vlHr"
 
-  getQuizQuestions(Object:any=[]){
-    return this.http.get<any>(this.BaseHtmlUrl);
+  getQuizQuestions(){
+    return this.http.get(this.BaseHtmlUrl);
+  };
+  getQuizQuestionsWpress(){
+    return this.http.get(this.BaseWordPressUrl);
+  };
+  getQuizQuestionsJsBasic(){
+    return this.http.get(this.BaseJsBUrl);
+  };
+  getQuizQuestionsJsInt(){
+    return this.http.get(this.BaseJsIUrl);
   };
 }
