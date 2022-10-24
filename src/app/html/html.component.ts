@@ -3,7 +3,8 @@ import { QuizService } from '../quiz.service';
 import { Observable ,interval} from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  Route, Router} from '@angular/router';
-import { enableDebugTools } from '@angular/platform-browser';
+
+
 
 
 @Component({
@@ -17,9 +18,20 @@ export class HtmlComponent implements OnInit {
   public fullname:string="";
   public questionsList:any=[];
   public currentQuestion:number=0;
+  public answers:any;
+  public correctAnswers:any;
+  activeState:any;
+
+
   public points:number=0;
   public counter:number=0;
-  public theCorrectAnswer:string="";
+
+  public theCorrectAnswerA:any=[];
+  public theCorrectAnswerB:boolean=false;
+  public theCorrectAnswerC:boolean=false;
+  public theCorrectAnswerD:boolean=false;
+
+  
   public clickedAnswer:string="";
   public total:number=0;
 
@@ -30,114 +42,144 @@ export class HtmlComponent implements OnInit {
   
 
   interval$:any;
+  $scope:any;
 
   progressbar:string="0";
+  correctType:any;
   // retrieve data from input value using #name = template reference
 
   constructor(private quizService:QuizService ,private modalService: NgbModal,private router:Router) { }
 
   ngOnInit(): void {
-
     // get name from loacal storage and place it in variable name
     this.fullname=localStorage.getItem("name")!;
       this.getQuestionList();
-      this.startCounter();
-
+      // this.getAnswersList();
+      
   }
+
+
   // modal popup
   public open(modal: any): void {
     this.modalService.open(modal);
-
   }
 
 
   // call the service function to acquire qsts in api 
   getQuestionList(){
     this.quizService.getQuizQuestions()
-    .subscribe(res=>{
-      this.questionsList=res;
-      console.log(res);
-    })
+    .subscribe((data: any)=>{
+      this.questionsList=data;
+      console.log(this.questionsList);
+
+      // counter to start only when questions are generated
+      this.startCounter();
+    });
   }
+
+
+ 
 
   // Arrow Button Functions
   nextQuestion(){
-    
-    this.theCorrectAnswer=this.questionsList[this.currentQuestion].correct_answer;
-    console.log("Correct Answ = "+this.theCorrectAnswer);
 
     this.getProgressbarPercentage();
-    
-
-    if(this.theCorrectAnswer === this.clickedAnswer ){
-      this.rightAnswers++;
-    }
-    else {
-      this.wrongAnswers++ ;
-      this.rightAnswers=0;
-    }
-    console.log("No.Correct Answ = "+this.rightAnswers);
-    console.log("Clicked Answ ="+this.clickedAnswer);
-   
-
-
-    
   }
  
 
   // Not clicked lists
    clicked=false;
-   bgcolor='enable';
-  // get value of clicked lists
-  onClick(event:any) {
-    this.clicked = !this.clicked;
-    var target = event.target.attributes.id.value;
-    this.clickedAnswer = target;
-    
-    if(this.clickedAnswer==="answer_a"){
-      this.bgcolor = this.clicked ? 'Enable' : 'Disable';
-    }else{
-      this.bgcolor = this.clicked ? 'Disable':'Enable';
-    }
-    console.log(this.clickedAnswer);
 
+  // get value of clicked lists
+  getAnswerClicked(answer:any) {
+    this.clicked = !this.clicked;
+
+    // change color when li is clicked
+    this.activeState = answer;
+
+    console.log(this.questionsList[this.currentQuestion].correct_answers)
+
+    // get value of answer clicked
+    this.clickedAnswer =answer.key;
+    console.log(this.clickedAnswer);
+    
   }
 
 
 
+// submit Quiz
+submitted=false;
 
-  // submit Quiz
-  submitted=false;
-
-  
   submitQuiz(){
     this.currentQuestion++;
     this.submitted=!this.submitted;
-    this.total=((this.rightAnswers/this.questionsList.length)*100);
-    console.log(this.rightAnswers,this.total,this.theCorrectAnswer);
-
-    this.theCorrectAnswer=this.questionsList[this.currentQuestion].correct_answer;
-    console.log("Correct Answ = "+this.theCorrectAnswer);
-
+ 
+    // progress bar
     this.getProgressbarPercentage();
+
+    console.log(this.clickedAnswer);
+
+    // Convert object to array
+    const obj =this.questionsList[this.currentQuestion].correct_answers
+      console.log(this.questionsList[this.currentQuestion].correct_answers)
+
+    const maps = Object.keys(obj).map(key => ({type: key, value: obj[key]}));
+      console.log(maps);
+      
+
+    for (let i = 0; i < maps.length; i++) {
+      this.correctAnswers = maps[i].value === "true";
+      this.correctType = maps[i].type === "";
+      console.log(maps[i].type);
+      console.log("type");
+
+    console.log(this.clickedAnswer+"_correct" === maps[i].type);
+
+      console.log("Answers");
+      console.log(this.correctAnswers);
+      if(this.correctAnswers){
+        console.log("yeeeey");  
+        if(this.clickedAnswer+"_correct" === maps[i].type){
+          this.rightAnswers++;
+           console.log(this.clickedAnswer === "answer_a");
+
+        }else if(this.clickedAnswer+"_correct" === maps[i].type){
+          this.rightAnswers++;
+           console.log(this.clickedAnswer === "answer_b");
+
+        }else if(this.clickedAnswer+"_correct" === maps[i].type){
+          this.rightAnswers++;
+            console.log(this.clickedAnswer === "answer_c");
+
+        }else if(this.clickedAnswer+"_correct" === maps[i].type){
+          this.rightAnswers++;
+            console.log(this.clickedAnswer === "answer_d");
+
+        }else{
+          this.wrongAnswers++;
+        }
+      }else{
+        console.log("noooo");
+        this.wrongAnswers++;
+      }
+
+    }
+
+
+    
+  
+    console.log(this.clickedAnswer+"_correct");
+
+    console.log(this.rightAnswers);
+    console.log(this.wrongAnswers);
+    
     
 
-    if(this.theCorrectAnswer === this.clickedAnswer ){
-      this.rightAnswers++;
-    }
-    else {
-      this.wrongAnswers++ ;
-      this.rightAnswers=0;
-    }
-    console.log("No.Correct Answ = "+this.rightAnswers);
-    console.log("Clicked Answ ="+this.clickedAnswer);
-   
-
-    
   }
 
+
 // counter
-timer=30;
+timer=20;
 second$:any;
 second=60;
   startCounter(){
@@ -159,9 +201,7 @@ second=60;
 
 
 
-  // progress bar percentage
-  
-
+// progress bar percentage
   getProgressbarPercentage(){
     this.progressbar = ((this.currentQuestion/this.questionsList.length)*100).toString();
     return this.progressbar;

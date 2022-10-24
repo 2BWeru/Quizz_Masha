@@ -30,47 +30,36 @@
                 <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" [ngStyle]="{'width':progressbar+'%'}" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <!-- quesion list -->
-            <div class="quesions" *ngIf="currentQuestion+1 <= questionsList.length">
+            <div class="quesions">
                 <div class="card">
                     <h3>{{questionsList[currentQuestion]?.question}}</h3>
                 </div>
             </div>
             <!-- options list -->
-            <div class="options" *ngIf="currentQuestion+1 <= questionsList.length">
+            <div class="options">
                 <ul> 
-                    <li (click)="onClick($event)" >
-
-                        <div class="card" id="answer_a">
-                            {{questionsList[currentQuestion]?.answers.answer_a}}
+                    <li  (click)="getAnswerClicked(answer)" 
+                        *ngFor="let answer of questionsList[currentQuestion]?.answers | keyvalue"
+                        
+                    >
+                        
+                        <div class="card" *ngIf="answer.value !== null" [class.active]="answer === activeState">
+                            {{answer.key}} :{{answer.value}}
                         </div>
                     </li>
-                    <li  (click)="onClick($event)">
-
-                        <div class="card" id="answer_b">
-                            {{questionsList[currentQuestion]?.answers.answer_b}}
-                        </div>
-                    </li>
-                    <li (click)="onClick($event)" >
-
-                        <div class="card" id="answer_c">
-                            {{questionsList[currentQuestion]?.answers.answer_c}}
-                        </div>
-                    </li>
-                    <li (click)="onClick($event)">
-
-                        <div class="card" id="answer_d">
-                            {{questionsList[currentQuestion]?.answers.answer_d}}
-                        </div>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- buttons -->
             <div class="d-flex justify-content-center">
-                <button (click)="submitQuiz()" class="btn" 
- 
+                <button (click)="submitQuiz()" class="btn btn-dark" 
+                *ngIf="currentQuestion+1 <= questionsList.length"
                 >
                     Submit
+                </button> 
+                <button (click)="submitQuiz()" class="btn btn-dark" 
+                *ngIf="currentQuestion+1 > questionsList.length"
+                >
+                     Submit Your Quiz
                 </button> 
             </div>
                            <!-- (click)="open(demoModal)" -->

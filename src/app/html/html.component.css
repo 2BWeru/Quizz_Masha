@@ -13,19 +13,6 @@ li .card:hover{
     border: 1px solid orange;
 
 }
-li .highlight, .highlight_stay{
-    background-color:red;
-}
-::-moz-selection { /* Code for Firefox */
-    color: red;
-    background: yellow;
-  }
-  
-  ::selection {
-    color: red;
-    background: yellow;
-  }
-
 
 ol{
     padding: 0;
@@ -34,10 +21,9 @@ button[disabled]{
     color: aliceblue;
     border: 1px white;
 }
-.green {
-    color: green;
-}
 
-.red {
-    color: red;
+div.active {
+    background-color: #0275E7;
+    color: #ffff;
+ /* background-color: rgb(201, 205, 248); */
 }
