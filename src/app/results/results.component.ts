@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TotalService } from '../total.service';
 
 @Component({
   selector: 'app-results',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private totalService:TotalService) { }
+
+  score:any;
+  test:string="";
 
   ngOnInit(): void {
-  }
+    this.totalService.currentData.subscribe(data => {
+      this.score=data;
+      console.log(this.score);
+   });
+
+   this.totalService.currentType.subscribe(data => {
+    this.test=data;
+    console.log(this.test);
+ });
+}
 
 }
