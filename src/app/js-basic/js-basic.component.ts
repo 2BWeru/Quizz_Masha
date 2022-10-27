@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { interval } from 'rxjs';
 import { QuizService } from '../quiz.service';
+import { TotalService } from '../total.service';
 
 @Component({
   selector: 'app-js-basic',
@@ -31,6 +32,8 @@ export class JsBasicComponent implements OnInit {
   
   public clickedAnswer:string="";
   public total:number=0;
+  public data:number=0;
+  public type:string="JavaScript Basic";
 
   wrongAnswers:number=0;
   rightAnswers:number=0;
@@ -45,7 +48,7 @@ export class JsBasicComponent implements OnInit {
   correctType:any;
   // retrieve data from input value using #name = template reference
 
-  constructor(private quizService:QuizService ,private modalService: NgbModal,private router:Router) { }
+  constructor(private quizService:QuizService,private totalService:TotalService,private modalService: NgbModal,private router:Router) { }
 
   ngOnInit(): void {
     // get name from loacal storage and place it in variable name
@@ -202,6 +205,19 @@ second=60;
   getProgressbarPercentage(){
     this.progressbar = ((this.currentQuestion/this.questionsList.length)*100).toString();
     return this.progressbar;
+  }
+
+  // calculate total score
+  finalsubmitQuiz(){
+    this.total=(this.rightAnswers *100)/15;
+
+    // navigate to results page
+    this.router.navigate(['/results']);
+
+    // send data to service
+  
+    this.totalService.setData(this.total)
+    this.totalService.setType(this.type)
   }
 
 }
