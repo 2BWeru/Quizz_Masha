@@ -1,23 +1,23 @@
 
 <!-- Top banner -->
-<section class="fh5co-top-banner">
+<section class="fh5co-top-banner" style="padding-top:0px ;">
     <div class="top-banner__inner site-container">
-        <div class="top-banner__image">
-            <img src="assets/images/top-banner-author.jpg" alt="author image">
-        </div>
-        <div class="top-banner__text">
-            <div class="top-banner__text-up">
-                <span class="brand-span">Home of local talent<br>
-                </span>
-                <h2 class="top-banner__h2">Quizz</h2>
-            </div>
-            <div class="top-banner__text-down">
-                <h2 class="top-banner__h2">Masha</h2>
-                <span class="brand-span"><i></i></span>
-            </div>
-            <p>Choose the quiz you would like to do</p>
-            <a href="#" class="brand-button">Read bio > </a>
-        </div>
+
+<section>
+
+  <nav>
+    <ul class="menuItems">
+      <li><a href='#' >Home</a></li>
+      <li><a href='#tests' >Tests</a></li>
+      <li><a href='#pathway' >Pathway</a></li>
+      <li><a href='#'>Register</a></li>
+      <li><a href='#contact'>Contact</a></li>
+    </ul>
+  </nav>
+
+</section>
+
+
     </div>
 </section>
 <!-- Top banner end -->
@@ -30,27 +30,34 @@
                 <img src="assets/images/about-me.jpg" class="about-me__profile" alt="about me profile picture">
             </div>
             <div class="portfolio__bottom">
-                <div class="portfolio__name">
-                    <span>Q</span>
-                    <h2 class="universal-h2">uizz Masha</h2>
-                </div>
+                
                 <p></p>
             </div>
         </article>
-        <div class="about-me__text">
+        <div class="about-me__text" id="home">
             <div class="about-me-slider">
                 <div class="about-me-single-slide">
-                    <h2 class="universal-h2 universal-h2-bckg">About us</h2>
-                    <p><span>H</span> e has work appearing or forthcoming in over a dozen venues, including Buzzy Mag, The Spirit of Poe, and the British Fantasy Society journal Dark Horizons. He is also CEO of a company, specializing in custom book publishing and social media marketing services, have created a community for authors to learn and connect.He has work appearing or forthcoming in over a dozen venues, including Buzzy Mag, The Spirit of Poe, and have created a community for authors to learn and connect.</p>
-                    <h4>Author</h4>
-                    <p class="p-white">See me</p>
+                    <div class="portfolio__name">
+                        
+                        <h2 class="universal-h2"><span style="font-size: 64px;color: orange;">Q</span>uizz Masha</h2>
+                    </div>
+                    <h5 class="p-white">Our Tests are Certified </h5>
+
+                    <h4>Home of local talent</h4>
+
+                    <br>
+                    <div class="books-brand-button">
+                        <a class="brand-button">
+                            <button class="btn btn-warning">
+                                Take  a Test
+                            </button>
+                        </a>
+                    </div>
+                    <br>
+                    <h2 class="universal-h2 universal-h2-bckg"></h2>
+
                 </div>
-                <div class="about-me-single-slide">
-                    <h2 class="universal-h2 universal-h2-bckg">Vision</h2>
-                    <p><span>H</span> e has work appearing or forthcoming in over a dozen venues, including Buzzy Mag, The Spirit of Poe, and the British Fantasy Society journal Dark Horizons. He is also CEO of a company, specializing in custom book publishing and social media marketing services, have created a community for authors to learn and connect.He has work appearing or forthcoming in over a dozen venues, including Buzzy Mag, The Spirit of Poe, and have created a community for authors to learn and connect.</p>
-                    <h4>Author</h4>
-                    <p class="p-white">See me</p>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -59,7 +66,7 @@
 <!-- About me end -->
 
 <!-- Books and CD -->
-<section class="fh5co-books">
+<section class="fh5co-books" id="tests">
     <div class="site-container">
         <h2 class="universal-h2 universal-h2-bckg">Language Quizes</h2>
         <div class="books">
@@ -72,8 +79,11 @@
                 </a>
                 <h4 class="single-book__title">HTML</h4>
                 <span class="single-book__price">
-                    <button (click)="open(demoModal)" #html>start Quiz</button>
-                    <!-- <a routerLink="/html">Start Quiz</a> -->
+                        <a routerLink="/html">
+                            <button #html (click)="quizPath()">start Quiz</button>
+                        </a>
+
+                    
                 </span>
                 <!-- star rating -->
                 <div class="rating">
@@ -92,10 +102,13 @@
                         <img src="assets/images/download.svg" alt="book imag]e">
                     </div>
                 </a>
-                <h4 class="single-book__title">CSS</h4>
+                <h4 class="single-book__title">Wordpress</h4>
                 <span class="single-book__price">
-                    <button (click)="open(demoModal)" #css>Start Quiz</button>
-                    <!-- <a routerLink="/Css">Start Quiz</a> -->
+                        <a routerLink="/wordpress">
+                            <button #css>Start Quiz</button>
+                        </a>
+
+                    
                 </span>
                 <!-- star rating -->
                 <div class="rating">
@@ -116,9 +129,11 @@
                 </a>
                 <h4 class="single-book__title">JavaScript (Basic)</h4>
                 <span class="single-book__price">
-                    <button (click)="open(demoModal)" #JsBasic>Start Quiz</button>
-
-                    <!-- <a routerLink="/JsBasic">Start Quiz</a> -->
+                    <a routerLink="/JsBasic">
+                        <button #JsBasic>Start Quiz</button>
+                    </a>
+                        
+                   
                 </span>
                 <!-- star rating -->
                 <div class="rating">
@@ -140,8 +155,13 @@
                 <h4 class="single-book__title">JavaScript (Intermediate)</h4>
                 
                 <span class="single-book__price">
-                    <button (click)="open(demoModal)" #JsIntermediate>Start Quiz</button>
-                    <!-- <a routerLink="JsIntermediate">Start Quiz</a> -->
+                    
+                        <a routerLink="/JsIntermediate">
+                            <button #JsIntermediate>Start Quiz</button>
+                        </a>
+                        
+                    
+                    
                 </span>
                 <!-- star rating -->
                 <div class="rating">
@@ -155,7 +175,11 @@
             </div>
         </div>
         <div class="books-brand-button">
-            <a href="#" class="brand-button">View more</a>
+            <a class="brand-button">
+                <button (click)="saveName($event)">
+                    Register
+                </button>
+            </a>
         </div>
     </div>
 </section>
@@ -211,15 +235,9 @@
                     
                         <div class="single-blog__text" style="width: 400px; height: 300px;margin-left: 30px;border-left: 1px gray;">
                             
-                            <p>Please Fill in you fullname to begin the Quiz</p>
+                            <p>Please confirm your email address to open Quiz</p>
                             <br>
-                            <div class="contact-form__input">
-                                <input #name type="text"  class="form-control" required>
-                            </div>
-                            <br>
-                            <div class="modal-footer">
-                                <button type="button" (click)="startQuiz()"class="btn btn-outline-dark"  (click)="modal.close('Save click')" >Start Quiz</button>
-                              </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -230,38 +248,38 @@
   </ng-template>
 <!-- modal -->
 <!-- Blog -->
-<section class="fh5co-blog">
+<section class="fh5co-blog" id="pathway">
     <div class="site-container">
         <h2 class="universal-h2 universal-h2-bckg">Frontend Web Developer Pathway</h2>
         <div class="blog-slider blog-inner">
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/blog1.jpg" alt="blog image">
+                    <img src="assets/images/html.jpeg" style="height: 300px; width: 260px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
-                    <h4>The Journey Under the Waves</h4>
-                    <span>On August 28, 2015</span>
-                    <p>Quisque vel sapi nec lacus adipis cing bibendum nullam porta lites laoreet aliquam.velitest, tempus a ullamcorper et, lacinia mattis mi. Cras arcu nulla, blandit id cursus et, ultricies eu leo.</p>
+                    <h4>HTML</h4>
+                    <span>On April 28, 2022</span>
+                    <p>Create the structure with HTML. The first thing you have to learn is HTML, which is the standard markup language for creating web pages.</p>
                 </div>
             </div>
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/blog2.jpg" alt="blog image">
+                    <img src="assets/images/css.jpeg" style="height: 300px; width: 260px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
-                    <h4>The Journey Under the Waves</h4>
-                    <span>On August 28, 2015</span>
-                    <p>Quisque vel sapi nec lacus adipis cing bibendum nullam porta lites laoreet aliquam.velitest, tempus a ullamcorper et, lacinia mattis mi. Cras arcu nulla, blandit id cursus et, ultricies eu leo.</p>
+                    <h4>CSS</h4>
+                    <span>On June 12, 2022</span>
+                    <p>Style with CSS. The next step is to learn CSS, to set the layout of your web page with beautiful colors, fonts, and much more.</p>
                 </div>
             </div>
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/blog2.jpg" alt="blog image">
+                    <img src="assets/images/Js.jpeg" style="height: 300px; width: 260px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
-                    <h4>The Journey Under the Waves</h4>
-                    <span>On August 28, 2015</span>
-                    <p>Quisque vel sapi nec lacus adipis cing bibendum nullam porta lites laoreet aliquam.velitest, tempus a ullamcorper et, lacinia mattis mi. Cras arcu nulla, blandit id cursus et, ultricies eu leo.</p>
+                    <h4>JavaScript</h4>
+                    <span>On August 20, 2022</span>
+                    <p>Make it interactive with JavaScript. After studying HTML and CSS, you should learn JavaScript to create dynamic and interactive web pages for your users.</p>
                 </div>
             </div>
         </div>
@@ -270,26 +288,7 @@
 <!-- Blog end -->
 
 <!-- Quotes -->
-<section class="fh5co-quotes">
-    <div class="site-container">
-        <div class="about-me-slider">
-            <div>
-                <h2 class="universal-h2 universal-h2-bckg">What People Are Saying</h2>
-                <p>“Pudding croissant cake candy canes fruitcake sweet roll pastry gummies sugar plum. Tart pastry danish soufflé donut bear claw chocolate cake marshmallow chupa chups. Jelly danish gummi bears cake donut powder chocolate cake. Bonbon soufflé lollipop biscuit dragée jelly-o. Wafer pastry pudding tiramisu chocolate bar croissant cake. Pie caramels gummies danish.”</p>
-                <img src="assets/images/quotes.svg" alt="quotes svg">
-                <h4>David Dixon</h4>
-                <p>Reader</p>
-            </div>
-            <div>
-                <h2 class="universal-h2 universal-h2-bckg">What People Are Saying 2</h2>
-                <p>“Pudding croissant cake candy canes fruitcake sweet roll pastry gummies sugar plum. Tart pastry danish soufflé donut bear claw chocolate cake marshmallow chupa chups. Jelly danish gummi bears cake donut powder chocolate cake. Bonbon soufflé lollipop biscuit dragée jelly-o. Wafer pastry pudding tiramisu chocolate bar croissant cake. Pie caramels gummies danish.”</p>
-                <img src="assets/images/quotes.svg" alt="quotes svg">
-                <h4>David Dixon</h4>
-                <p>Reader</p>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- Quotes end -->
 
 <!-- Social -->
@@ -310,7 +309,7 @@
 <!-- Social -->
 
 <!-- Footer -->
-<footer class="site-footer">
+<footer class="site-footer" id="contact">
     <div class="site-container">
         <div class="footer-inner">
             <div class="footer-info">
