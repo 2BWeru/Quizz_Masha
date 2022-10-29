@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule,Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormsModule } from '@angular/forms';
 import { HeroFormComponent } from './hero-form/hero-form.component';
@@ -16,6 +17,9 @@ import { CssComponent } from './css/css.component';
 import { JsBasicComponent } from './js-basic/js-basic.component';
 import { JsIntermediateComponent } from './js-intermediate/js-intermediate.component';
 import { ResultsComponent } from './results/results.component';
+import { GetAnswersPipe } from './get-answers.pipe';
+import { NamesComponent } from './names/names.component';
+import { ChangeStyleDirective } from './change-style.directive';
 
 @NgModule({
   declarations: [
@@ -28,21 +32,26 @@ import { ResultsComponent } from './results/results.component';
     JsBasicComponent,
     JsIntermediateComponent,
     ResultsComponent,
+    GetAnswersPipe,
+    NamesComponent,
+    ChangeStyleDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot([
       {path:'' ,component:BlogComponent},
       {path:'html' ,component:HtmlComponent},
       {path:'blog',component:BlogComponent},
-      {path:'css',component:CssComponent},
+      {path:'wordpress',component:CssComponent},
       {path:'JsBasic',component:JsBasicComponent},
       {path:'JsIntermediate',component:JsIntermediateComponent},
       {path:'results',component:ResultsComponent},
+      {path:'names',component:NamesComponent},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
