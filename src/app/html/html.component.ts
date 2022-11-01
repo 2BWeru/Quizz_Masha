@@ -3,7 +3,7 @@ import { QuizService } from '../quiz.service';
 import { Observable ,interval} from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  Route, Router} from '@angular/router';
-
+import { TotalService } from '../total.service';
 
 
 
@@ -15,7 +15,7 @@ import {  Route, Router} from '@angular/router';
 
 export class HtmlComponent implements OnInit {
 
-  public fullname:string="";
+  public fullname:any;
   public questionsList:any=[];
   public currentQuestion:number=0;
   public answers:any;
@@ -35,6 +35,10 @@ export class HtmlComponent implements OnInit {
   public clickedAnswer:string="";
   public total:number=0;
 
+  public data:number=0;
+  public type:string="HTML";
+  public username:any;
+
   wrongAnswers:number=0;
   rightAnswers:number=0;
   notAnswered:string="You have not Answered this Question !!!"
@@ -48,13 +52,16 @@ export class HtmlComponent implements OnInit {
   correctType:any;
   // retrieve data from input value using #name = template reference
 
-  constructor(private quizService:QuizService ,private modalService: NgbModal,private router:Router) { }
+  constructor(private quizService:QuizService,private totalService:TotalService,private modalService: NgbModal,private router:Router) { }
 
   ngOnInit(): void {
     // get name from loacal storage and place it in variable name
     this.fullname=localStorage.getItem("name")!;
       this.getQuestionList();
       // this.getAnswersList();
+
+      this.username=localStorage.getItem("namePerson");
+      console.log(this.username);
       
   }
 
@@ -205,6 +212,19 @@ second=60;
   getProgressbarPercentage(){
     this.progressbar = ((this.currentQuestion/this.questionsList.length)*100).toString();
     return this.progressbar;
+  }
+
+  // calculate total score
+  finalsubmitQuiz(){
+    this.total=(this.rightAnswers *100)/15;
+
+    // navigate to results page
+    this.router.navigate(['/results']);
+
+    // send data to service
+  
+    this.totalService.setData(this.total)
+    this.totalService.setType(this.type)
   }
 
 }
