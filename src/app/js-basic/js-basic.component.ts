@@ -13,7 +13,7 @@ import { TotalService } from '../total.service';
 export class JsBasicComponent implements OnInit {
 
 
-  public fullname:string="";
+  public fullname:any;
   public questionsList:any=[];
   public currentQuestion:number=0;
   public answers:any;

@@ -1,21 +1,30 @@
 
 <!-- Top banner -->
-<section class="fh5co-top-banner" style="padding-top:0px ;">
+<section class="fh5co-top-banner">
     <div class="top-banner__inner site-container">
+    <div class="container p-5  text-white text-center bg-light m-1">
+        <nav>
+            <ul class="menuItems">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <li><a href='#tests' >Tests</a></li>
+                    </div>
+                    <div class="col-sm-3">
+                        <li><a href='#pathway' >Pathway</a></li>
+                    </div>
+                    <div class="col-sm-3">
+                        <li><a routerLink="/names">Sign In</a></li>
+                    </div>
+                    <div class="col-sm-3">
+                        <li><a routerLink="#contactForm">Contact</a></li>
+                    </div>
+                </div>
+            </ul>
+          </nav>
+    </div>
+  
 
-<section>
 
-  <nav>
-    <ul class="menuItems">
-      <li><a href='#' >Home</a></li>
-      <li><a href='#tests' >Tests</a></li>
-      <li><a href='#pathway' >Pathway</a></li>
-      <li><a href='#'>Register</a></li>
-      <li><a href='#contact'>Contact</a></li>
-    </ul>
-  </nav>
-
-</section>
 
 
     </div>
@@ -27,7 +36,7 @@
     <div class="about-me-inner site-container">
         <article class="portfolio-wrapper">
             <div class="portfolio__img">
-                <img src="assets/images/about-me.jpg" class="about-me__profile" alt="about me profile picture">
+                <img src="assets/images/Quizz masha.jpg" class="about-me__profile" alt="about me profile picture">
             </div>
             <div class="portfolio__bottom">
                 
@@ -68,7 +77,7 @@
 <!-- Books and CD -->
 <section class="fh5co-books" id="tests">
     <div class="site-container">
-        <h2 class="universal-h2 universal-h2-bckg">Language Quizes</h2>
+        <h2 class="universal-h2 universal-h2-bckg">Tests</h2>
         <div class="books">
             <div class="single-book">
                 <a href="#" class="single-book__img">
@@ -77,11 +86,11 @@
                         <img src="assets/images/download.svg" alt="book image">
                     </div>
                 </a>
-                <h4 class="single-book__title">HTML</h4>
+                <h4 class="single-book__title" id="html">Html</h4>
                 <span class="single-book__price">
-                        <a routerLink="/html">
-                            <button #html (click)="quizPath()">start Quiz</button>
-                        </a>
+                    
+                            <button (click)="startQuizH()" class="btn btn-warning" >start Quiz</button>
+                        
 
                     
                 </span>
@@ -102,11 +111,11 @@
                         <img src="assets/images/download.svg" alt="book imag]e">
                     </div>
                 </a>
-                <h4 class="single-book__title">Wordpress</h4>
+                <h4 class="single-book__title" id="WordPress">Wordpress</h4>
                 <span class="single-book__price">
-                        <a routerLink="/wordpress">
-                            <button #css>Start Quiz</button>
-                        </a>
+                        
+                            <button  (click)="startQuizW()" class="btn btn-warning" >Start Quiz</button>
+                        
 
                     
                 </span>
@@ -127,11 +136,11 @@
                         <img src="assets/images/download.svg" alt="book image">
                     </div>
                 </a>
-                <h4 class="single-book__title">JavaScript (Basic)</h4>
+                <h4 class="single-book__title" id="JsBasic">JavaScript(Basic)</h4>
                 <span class="single-book__price">
-                    <a routerLink="/JsBasic">
-                        <button #JsBasic>Start Quiz</button>
-                    </a>
+
+                        <button (click)="startQuizB()" class="btn btn-warning" >Start Quiz</button>
+                    
                         
                    
                 </span>
@@ -152,13 +161,12 @@
                         <img src="assets/images/download.svg" alt="book image">
                     </div>
                 </a>
-                <h4 class="single-book__title">JavaScript (Intermediate)</h4>
+                <h4 class="single-book__title">JavaScript(Intermediate)</h4>
                 
                 <span class="single-book__price">
                     
-                        <a routerLink="/JsIntermediate">
-                            <button #JsIntermediate>Start Quiz</button>
-                        </a>
+                            <button (click)="startQuizI()" class="btn btn-warning" >Start Quiz</button>
+
                         
                     
                     
@@ -175,10 +183,10 @@
             </div>
         </div>
         <div class="books-brand-button">
-            <a class="brand-button">
-                <button (click)="saveName($event)">
-                    Register
-                </button>
+            <a class="brand-button" routerLink="/names">
+               
+                    Sign In
+               
             </a>
         </div>
     </div>
@@ -189,14 +197,14 @@
 <div class="fh5co-counter counters">
     <div class="counter-inner site-container">
         <div class="single-count">
-            <span class="count" data-count="50">0</span>
+            <span class="count" data-count="4">0</span>
             <div class="single-count__text">
                 <img src="assets/images/counter-1.png" alt="counter icon">
                 <p>Quizes</p>
             </div>
         </div>
         <div class="single-count">
-            <span class="count" data-count="600">0</span>
+            <span class="count" data-count="300">0</span>
             <div class="single-count__text">
                 <img src="assets/images/counter-2.png" alt="counter icon">
                 <p>Scores</p>
@@ -210,7 +218,7 @@
             </div>
         </div> -->
         <div class="single-count">
-            <span class="count" data-count="125">0</span>
+            <span class="count" data-count="25">0</span>
             <div class="single-count__text">
                 <img src="assets/images/counter-4.png" alt="counter icon">
                 <p>Certifications</p>
@@ -221,31 +229,31 @@
 <!-- Counter -->
 
 <!-- modal -->
-  <ng-template #demoModal let-modal>
-    <div class="modal-header">
-      <!-- <h4 class="modal-title" id="modal-basic-title">Profile update</h4> -->
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body" style="height: 500px;">
-        <section class="fh5co-blog">
-            <div class="site-container-fluid">
-                <h2 class="universal-h2 universal-h2-bckg">Quizz Masha</h2>
-                <div class="blog-slider blog-inner">
-                    <div class="single-blog" style="padding: 0;">
-                    
-                        <div class="single-blog__text" style="width: 400px; height: 300px;margin-left: 30px;border-left: 1px gray;">
-                            
-                            <p>Please confirm your email address to open Quiz</p>
-                            <br>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-  
-  </ng-template>
+<ng-container *ngIf="display$ | async as display">
+    <aside [class.open]="display === 'open'"
+             (click)="close()">
+      <div (click)="$event.stopPropagation()">
+        <button class="close"
+                type="button" 
+                (click)="close()">X
+        </button>
+
+        <div class="center-text">
+            <h4><mark>Kindly Input ID to access Quiz</mark></h4>
+        </div>
+        <form [formGroup]="IdForm" (ngSubmit)="onSubmit()">
+            <label for="exampleInputEmail1" class="form-label"></label>
+            <input type="text" formControlName="id" placeholder="User Id" #Uid class="form-control" [ngClass]="{ 'is-invalid': submitted }"  id="inputId">
+            <br>
+            
+            <button type="submit" class="btn btn-warning">Submit</button>
+            <br>
+            <br>
+            <p>NB. To generate your User Id,you need to Sign in</p>
+        </form>
+      </div>
+    </aside>
+  </ng-container>
 <!-- modal -->
 <!-- Blog -->
 <section class="fh5co-blog" id="pathway">
@@ -254,7 +262,7 @@
         <div class="blog-slider blog-inner">
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/html.jpeg" style="height: 300px; width: 260px;" alt="blog image">
+                    <img src="assets/images/html.jpeg" style="height: 300px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
                     <h4>HTML</h4>
@@ -264,7 +272,7 @@
             </div>
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/css.jpeg" style="height: 300px; width: 260px;" alt="blog image">
+                    <img src="assets/images/css.jpeg" style="height: 300px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
                     <h4>CSS</h4>
@@ -274,7 +282,7 @@
             </div>
             <div class="single-blog">
                 <div class="single-blog__img">
-                    <img src="assets/images/Js.jpeg" style="height: 300px; width: 260px;" alt="blog image">
+                    <img src="assets/images/Js.jpeg" style="height: 300px;" alt="blog image">
                 </div>
                 <div class="single-blog__text">
                     <h4>JavaScript</h4>
@@ -362,16 +370,8 @@
     <div class="footer-bottom">
         <div class="site-container footer-bottom-inner">
             <p>© 2022 Author | Design by betty Weru | All rights Reserved.</p>
-            <div class="footer-bottom__img">
-                <img src="assets/images/footer-mastercard.png" alt="footer image">
-                <img src="assets/images/footer-paypal.png" alt="footer image">
-                <img src="assets/images/footer-visa.png" alt="footer image">
-                <img src="assets/images/footer-fedex.png" alt="footer image">
-                <img src="assets/images/footer-dhl.png" alt="footer image">
-            </div>
+            
         </div>
     </div>
 </footer>
-<!-- Footer end -->
-
-
+<!-- Footer end - -->

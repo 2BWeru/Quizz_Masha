@@ -1,9 +1,12 @@
 import { Component, OnInit,ElementRef, ViewChild} from '@angular/core';
 import { Hero } from '../hero';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {  Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { ModalService } from '../modal.service';
+
+
+
 
 @Component({
   selector: 'app-blog',
@@ -12,37 +15,96 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class BlogComponent implements OnInit {
   
-  @ViewChild("name") nameKey!:ElementRef;
+  @ViewChild("Uid") idKey!:ElementRef;
 
+  public display$!: Observable<'open' | 'close'>;
   public btnName :any;
   public quizAttempts:number=1;
   public attempts:number=0;
+  public Uniqueid:any;
+  public Uid:any;
+  public testHtml:string="";
+  public testWpress:string="";
+  public testJsBasic:string="";
+  public testJsIntermediate:string="";
+ 
+  
+
+    IdForm = new FormGroup({
+     id: new FormControl(''),
+    });
+    
+  submitted = false;
 
  
-  constructor(private modalService: NgbModal,private router:Router) { }
+  constructor(private router:Router,private modalService:ModalService,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-   
+    this.display$ = this.modalService.watch();
+
   }
-// modal popup
-  public open(modal: any): void {
-    this.modalService.open(modal);
+
+ 
+  // store name in local storage
+  startQuizH(){
+      this.testHtml = "HTML";
+      this.open();
+  }
+  startQuizW(){
+    this.testWpress = "Wordpress";
+    this.open();
+  }
+  startQuizB(){
+    this.testJsBasic = "JavaScript(Basic)";
+    this.open();
+  }
+  startQuizI(){
+    this.testJsIntermediate = "JavaScript(Intermediate)";
+    this.open();
+  }
+
+
+  //  modal
+  open() {
+    this.modalService.open();
 
   }
 
   
-  // store name in local storage
-  startQuiz(){
-    localStorage.setItem("name",this.nameKey.nativeElement.value);
+  close() {
+    this.modalService.close();
+  }
 
-    if(this.btnName="html"){
-      // console.log(this.btnName);
-      this.router.navigate(["/html"]);
-    }else{
-      this.router.navigate(["/"])
+ 
+  onSubmit() {
+    this.Uniqueid = localStorage.getItem("id");
+    localStorage.setItem("Uid",this.idKey.nativeElement.value)
+
+    this.Uid = localStorage.getItem("Uid");
+    console.log(this.Uniqueid === this.Uid);
+    console.log(this.Uniqueid );
+    console.log( this.Uid);
+
+  
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.IdForm.invalid) {
+     
+    }
+    //True if all the fields are filled
+    if(this.submitted && this.Uniqueid === this.Uid)
+    {
+      if(this.testHtml === "HTML"){
+        this.router.navigate(["/html"]);
+      }else if(this.testWpress === "Wordpress"){
+        this.router.navigate(["/wordpress"]);
+      }else if(this.testJsBasic === "JavaScript(Basic)"){
+        this.router.navigate(["/JsBasic"]);
+      }else if(this.testJsIntermediate === "JavaScript(Intermediate)"){
+        this.router.navigate(["/JsIntermediate"]);
+      }
     }
   }
-    
  
   contacts = new Hero("","","");
 
@@ -51,7 +113,7 @@ export class BlogComponent implements OnInit {
   };
 
    // submit form
-  submitted=false
+
 
   // onSubmit(){this.submitted=true;}
 
@@ -71,10 +133,6 @@ export class BlogComponent implements OnInit {
   }
 
 
-  onSubmit(){
-    console.log("adding form values ");
-    // console.log(addMountForm.value);
-}
 
 
 
