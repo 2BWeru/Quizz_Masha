@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPrintModule } from 'ngx-print';
+import {MatDialogModule} from '@angular/material/dialog'; 
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +23,10 @@ import { ResultsComponent } from './results/results.component';
 import { GetAnswersPipe } from './get-answers.pipe';
 import { NamesComponent } from './names/names.component';
 import { ChangeStyleDirective } from './change-style.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,9 +42,12 @@ import { ChangeStyleDirective } from './change-style.directive';
     GetAnswersPipe,
     NamesComponent,
     ChangeStyleDirective,
+
+
   ],
   imports: [
     BrowserModule,
+    NgxPrintModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
@@ -52,8 +62,9 @@ import { ChangeStyleDirective } from './change-style.directive';
       {path:'JsIntermediate',component:JsIntermediateComponent},
       {path:'results',component:ResultsComponent},
       {path:'names',component:NamesComponent},
-      {path: '**', component: PageNotFoundComponent}
+      {path: '**', component: PageNotFoundComponent},
     ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

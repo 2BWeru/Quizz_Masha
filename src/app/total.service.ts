@@ -12,14 +12,19 @@ export class TotalService {
   private type = new BehaviorSubject("")
   currentType = this.type.asObservable();
 
+  private id = new BehaviorSubject("")
+  currentId = this.id.asObservable();
+
+
   constructor() { }
 
   setData(total:any) {
     this.total.next(total);
-}
-
-setType(type:any) {
-  this.type.next(type);
-}
-
+  }
+  setType(type:any) {
+    this.type.next(type);
+  }
+  setId(type:any) {
+    this.id.next(type);
+  }
 }
