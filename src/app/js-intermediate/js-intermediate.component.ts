@@ -12,7 +12,7 @@ import { TotalService } from '../total.service';
 })
 export class JsIntermediateComponent implements OnInit {
 
-  public fullname:string="";
+  public fullname:any;
   public questionsList:any=[];
   public currentQuestion:number=0;
   public answers:any;
@@ -163,17 +163,6 @@ submitted=false;
       }
 
     }
-
-
-    
-  
-    console.log(this.clickedAnswer+"_correct");
-
-    console.log(this.rightAnswers);
-    console.log(this.wrongAnswers);
-    
-    
-
   }
 
 
@@ -208,7 +197,7 @@ second=60;
 
   // calculate total score
   finalsubmitQuiz(){
-    this.total=(this.rightAnswers *100)/15;
+    this.total=((this.rightAnswers *100)/15*100);
 
     // navigate to results page
     this.router.navigate(['/results']);
