@@ -34,12 +34,7 @@ export class ResultsComponent implements OnInit {
     this.test=data;
     console.log(this.test);
  });
-
-//  unique id
-
-   
 }
-
 
 
 
