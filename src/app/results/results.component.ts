@@ -21,18 +21,21 @@ export class ResultsComponent implements OnInit {
   today:number = Date.now();
   test:string="";
   username:any;
+  UnId:any;
 
   ngOnInit(): void {
     this.totalService.currentData.subscribe(data => {
       this.score=data;
-      console.log(this.score);
+
 
       this.username=localStorage.getItem("namePerson");
    });
 
    this.totalService.currentType.subscribe(data => {
     this.test=data;
-    console.log(this.test);
+
+    this.UnId=localStorage.getItem("id");   
+    
  });
 }
 
