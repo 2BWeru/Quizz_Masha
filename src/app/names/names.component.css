@@ -18,6 +18,7 @@
 	 width: auto;
 	 height: auto;
 	 position: relative;
+
    /* display: grid;
 	 grid-template-columns: auto auto; */
 	 place-items: center;
@@ -42,7 +43,7 @@
 	 height: 45px;
 	 display: grid;
 	 place-items: center;
-	 font-size: 1.7rem;
+	 font-size: 1.7rem; 
 	 color: #2e4052;
 	 border-radius: 50%;
 	 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.164);
@@ -50,13 +51,16 @@
 }
  .container img {
 	 width: 300px;
-	 height: 400px;
+	 height: 420px;
 	 object-fit: cover;
 	 object-position: center;
+	 border-radius: 10px 10px 10px 10px;
+	 padding-top: 4px;
 }
  .container-text {
-	 padding: 10px 40px 10px 10px;
+	 padding: 10px 80px 10px 10px;
 }
+
  .container-text h2 {
 	 font-size: 1.2rem;
 	 color:white;
@@ -155,8 +159,8 @@ input[type=text] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 300px;
-    width: 500px;
+    height: auto;
+    width: auto;
     background: white;
     padding: 64px;
     border-radius: 8px;
