@@ -35,6 +35,7 @@ export class ResultsComponent implements OnInit {
     this.test=data;
 
     this.UnId=localStorage.getItem("id"); 
+    this.username=localStorage.getItem("namePerson"); 
    
     
  });
