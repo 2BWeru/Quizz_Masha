@@ -34,7 +34,8 @@ export class ResultsComponent implements OnInit {
    this.totalService.currentType.subscribe(data => {
     this.test=data;
 
-    this.UnId=localStorage.getItem("id");   
+    this.UnId=localStorage.getItem("id"); 
+   
     
  });
 }
