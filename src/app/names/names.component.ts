@@ -60,6 +60,7 @@ export class NamesComponent implements OnInit {
   
     // open modal Function
     this.open();
+    this.startCounter();
 
     
     
@@ -92,7 +93,7 @@ export class NamesComponent implements OnInit {
 
   // timer
 interval$:any;
-timer=180;
+timer=10;
 second$:any;
   startCounter(){
     this.interval$ = interval(1000)
@@ -100,6 +101,7 @@ second$:any;
       this.timer--;
         if(this.timer===0){
             this.router.navigate(["/"])
+            this.close();
         } 
     })
   }
