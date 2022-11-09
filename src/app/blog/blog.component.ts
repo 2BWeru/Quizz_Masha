@@ -96,12 +96,16 @@ export class BlogComponent implements OnInit {
     {
       if(this.testHtml === "HTML"){
         this.router.navigate(["/html"]);
+        this.close();
       }else if(this.testWpress === "Wordpress"){
         this.router.navigate(["/wordpress"]);
+        this.close();
       }else if(this.testJsBasic === "JavaScript(Basic)"){
         this.router.navigate(["/JsBasic"]);
+        this.close();
       }else if(this.testJsIntermediate === "JavaScript(Intermediate)"){
         this.router.navigate(["/JsIntermediate"]);
+        this.close();
       }
     }
   }
