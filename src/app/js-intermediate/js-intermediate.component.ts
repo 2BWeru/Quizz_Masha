@@ -197,7 +197,7 @@ second=60;
 
   // calculate total score
   finalsubmitQuiz(){
-    this.total=((this.rightAnswers *100)/15*100);
+    this.total=Math.round((this.rightAnswers *100)/15);
 
     // navigate to results page
     this.router.navigate(['/results']);
