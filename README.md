@@ -1,5 +1,9 @@
 # Quizz__Masha
 
+Quiz__Masha is a website developed to test programming skills for Frontend Developers through the provided Quizes 
+
+https://quizzmasha.netlify.app/
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
