@@ -4,7 +4,9 @@ Quiz__Masha is a web-based platform designed for Frontend Developers to test and
 
 https://quizzmasha.netlify.app/
 
-## Table of Contents
+## Video Tutorial
+We have prepared a video tutorial to guide you through the setup and usage of the Quiz__Masha platform. Watch the video here:
+[Quiz Masha (\Users\Betty\Videos\Captures\Quiz Masha])
 
 ## Features
 - Comprehensive Quizzes: Test your skills in WordPress, HTML, JavaScript, and CSS with carefully designed quiz questions.
@@ -14,44 +16,6 @@ https://quizzmasha.netlify.app/
 - Responsive Design: The platform is fully responsive, ensuring a seamless experience on mobile, tablet, and desktop devices.
 - Built with Angular: Utilizes Angular framework to provide a dynamic and fluid user interface.
 - Backend API: Data is served through an API, ensuring efficient communication between the frontend and backend.
-
-## Project Structure
-The project is organized as follows:
-` Quiz__Masha/
-│
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── quiz/
-│   │   │   ├── results/
-│   │   │   ├── certificate/
-│   │   │   └── auth/
-│   │   ├── services/
-│   │   │   ├── quiz.service.ts
-│   │   │   ├── auth.service.ts
-│   │   │   └── certificate.service.ts
-│   │   ├── models/
-│   │   │   ├── user.model.ts
-│   │   │   ├── quiz.model.ts
-│   │   │   └── certificate.model.ts
-│   │   └── app.module.ts
-│   └── assets/
-│       ├── styles/
-│       ├── images/
-│       └── fonts/
-├── api/
-│   ├── controllers/
-│   │   ├── quizController.js
-│   │   └── userController.js
-│   ├── routes/
-│   │   ├── quizRoutes.js
-│   │   └── userRoutes.js
-│   └── models/
-│       ├── quizModel.js
-│       └── userModel.js
-├── LICENSE
-├── README.md
-└── package.json `
 
 ## Installation
 To set up the project locally, follow these steps:
@@ -78,7 +42,6 @@ Make sure you have the following installed:
 6. Access the app: Open your browser and go to:
 `http://localhost:4200`
 
-
 ## Usage
 - Sign up / Log in: Create a user account to access all features.
 - Take a Quiz: Choose from a variety of quizzes in WordPress, HTML, JavaScript, or CSS.
@@ -86,10 +49,6 @@ Make sure you have the following installed:
 - Generate Certificate: Successfully complete a quiz to generate and print a personalized certificate.
 - Track Progress: Log in anytime to view your quiz history and download certificates.
 - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
-
-## Video Tutorial
-We have prepared a video tutorial to guide you through the setup and usage of the Quiz__Masha platform. Watch the video here:
-[Insert Video Link]
 
 ## Contributing
 We welcome contributions from the community! If you'd like to contribute to Quiz__Masha, please follow these steps:
