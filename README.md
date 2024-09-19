@@ -7,7 +7,7 @@ https://quizzmasha.netlify.app/
 ## Video Tutorial
 We have prepared a video tutorial to guide you through the setup and usage of the Quiz__Masha platform. Watch the video here:
 
-[![Quiz Masha]([https://www.youtube.com/watch?v=VIDEO_ID](https://youtu.be/3zl_T0BTnLM))
+[![Quiz Masha](https://img.youtube.com/vi/_3zl_T0BTnLM/0.jpg)](https://www.youtube.com/watch?v=_3zl_T0BTnLM)
 
 ## Features
 - Comprehensive Quizzes: Test your skills in WordPress, HTML, JavaScript, and CSS with carefully designed quiz questions.
